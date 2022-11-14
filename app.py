@@ -5,7 +5,6 @@ from models import db, product_table
 from flask import request
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://anpovvgsbmrjhx:8dc85beb3e58bb37eb132b5fa40fd833378f46346e269fe74f296abc664f199d@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dek5bptg3n886s"
-db.init_app(app)
 migrate = Migrate(app, db)
 
 
@@ -33,6 +32,7 @@ def calculate():
 
 if __name__ == '__main__':
     with app.app_context():
+        db.init_app(app)
         app.run(debug=True)
 
 

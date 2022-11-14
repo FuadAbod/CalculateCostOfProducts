@@ -31,8 +31,6 @@ def calculate():
     return render_template('calculate.html', summary=total)
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
         app.run(debug=True)
 
 

@@ -4,11 +4,13 @@ from flask_migrate import Migrate
 from models import db, product_table  
 from flask import request
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://anpovvgsbmrjhx:8dc85beb3e58bb37eb132b5fa40fd833378f46346e269fe74f296abc664f199d@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dek5bptg3n886s"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://anpovvgsbmrjhx:8dc85beb3e58bb37eb132b5fa40fd833378f46346e269fe74f296abc664f199d@ec2-3-219-135-162.compute-1.amazonaws.com:5432/dek5bptg3n886s"
 db.init_app(app)
 migrate = Migrate(app, db)
 
-
+with app.app_context():
+    db.create_all()
+    
 @app.route('/', methods=('GET', 'POST'))
 def index():
     data = request.form.to_dict()
@@ -32,4 +34,5 @@ def calculate():
     return render_template('calculate.html', summary=total)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    
+        app.run(debug=True)

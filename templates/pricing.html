@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <style>
+        .message {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+        nav a {
+            color: #d64161;
+            font-size: 3em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Pricing Module</a>
+    </nav>
+    <hr>
+    <div>
+        <h1> insert required information</h1>
+    </div>
+    <br>
+    <form method="POST" >
+        <h4>
+            Product_name <input type="text" , name="Product_name", id="Product_name">
+            Product_Price <input type ="number", name= "Product_price", id="Product_price">
+            <input type ="submit" name="Submit">
+        </h4>
+        <a href="{{ url_for('calculate') }}">
+            <input type ="button" name="calculate" value="Calculate">
+        </a>
+    </form>
+    
+
+</body>
+</html>

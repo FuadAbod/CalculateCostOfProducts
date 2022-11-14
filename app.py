@@ -31,6 +31,6 @@ def calculate():
     return render_template('calculate.html', summary=total)
 
 if __name__ == '__main__':
-        app.run(debug=True)
+    app.run(debug=True)
 
 
